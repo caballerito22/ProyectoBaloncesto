@@ -25,8 +25,7 @@ public class FirstFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding.ListViewJugadores.setAdapter(adapter);
-        binding = FragmentFirstBinding.inflate(inflater, container, false);
+               binding = FragmentFirstBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -41,7 +40,7 @@ public class FirstFragment extends Fragment {
 
         adapter = new ArrayAdapter<>(getContext(),
                 R.layout.jugador_list_item,
-                R.id.textJugadorView,
+                R.id.textJugadorLista,
                 listaJugadores);
         binding.ListViewJugadores.setAdapter(adapter);
 

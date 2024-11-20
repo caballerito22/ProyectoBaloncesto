@@ -6,7 +6,7 @@
              android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageJugadorView"
+        android:id="@+id/imgJugadorLista"
         android:layout_width="106dp"
         android:layout_height="79dp"
         android:layout_marginStart="16dp"
@@ -16,12 +16,12 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textJugadorView"
+        android:id="@+id/textJugadorLista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/imageJugadorView"
+        app:layout_constraintBottom_toBottomOf="@+id/imgJugadorLista"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageJugadorView"
+        app:layout_constraintStart_toEndOf="@+id/imgJugadorLista"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
