@@ -1,6 +1,8 @@
 package com.example.proyectobaloncesto;
 
-public class Jugador {
+import java.io.Serializable;
+
+public class Jugador implements Serializable {
     int id;
     String nombre;
     Integer puntos_totales;

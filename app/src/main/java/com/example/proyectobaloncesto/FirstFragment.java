@@ -22,8 +22,8 @@ import java.util.concurrent.Executors;
 public class FirstFragment extends Fragment {
 
     private FragmentFirstBinding binding;
-    ArrayList <String> listaJugadores;
-    ArrayAdapter <String> adapter;
+    ArrayList <Jugador> listaJugadores;
+    ArrayAdapter <Jugador> adapter;
 
     @Override
     public View onCreateView(
@@ -81,7 +81,7 @@ public class FirstFragment extends Fragment {
             ArrayList<Jugador> fetchedJugadores  = JugadorAPI.buscar();
 
             getActivity().runOnUiThread(() -> {
-                for (Jugador p : pokemons) {
+                for (Jugador p : fetchedJugadores) {
                     listaJugadores.add(p);
                 }
                 adapter.notifyDataSetChanged();
