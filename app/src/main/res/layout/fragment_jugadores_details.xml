@@ -3,42 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".jugadores_details">
 
     <ImageView
         android:id="@+id/imgJugadorDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_width="102dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtNombreDetails"
+        android:id="@+id/txtNombreDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgJugadorDetail"
-        tools:layout_editor_absoluteY="47dp" />
+        tools:layout_editor_absoluteY="55dp" />
 
     <TextView
-        android:id="@+id/txtPuntosDetails"
+        android:id="@+id/txtPuntosDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/txtNombreDetails"
-        app:layout_constraintStart_toStartOf="@+id/txtNombreDetails"
-        tools:layout_editor_absoluteY="126dp" />
+        app:layout_constraintEnd_toEndOf="@+id/txtNombreDetail"
+        app:layout_constraintStart_toStartOf="@+id/txtNombreDetail"
+        tools:layout_editor_absoluteY="125dp" />
 
     <TextView
-        android:id="@+id/txtNacimientoDetails"
+        android:id="@+id/txtNacimientoDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/txtPuntosDetails"
-        app:layout_constraintStart_toStartOf="@+id/txtPuntosDetails"
-        tools:layout_editor_absoluteY="185dp" />
+        app:layout_constraintEnd_toEndOf="@+id/txtPuntosDetail"
+        app:layout_constraintStart_toStartOf="@+id/txtPuntosDetail"
+        tools:layout_editor_absoluteY="190dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
