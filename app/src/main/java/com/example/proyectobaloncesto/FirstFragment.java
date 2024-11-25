@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.proyectobaloncesto.databinding.FragmentFirstBinding;
 
@@ -38,20 +39,36 @@ public class FirstFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setHasOptionsMenu(true);
 
         listaJugadores = new ArrayList<>();
-        /*listaJugadores.add("Lebron James");
-        listaJugadores.add("Kareem Abdul-Jabbar");
-        listaJugadores.add("Karl Malone");*/
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.execute(() -> {
+            ArrayList<Jugador> fetchedJugadores  = JugadorAPI.buscar();
 
-        refresh();
+            getActivity().runOnUiThread(() -> {
+                for (Jugador p : fetchedJugadores) {
+                    Log.d("XXX", p.toString());
+                    listaJugadores.add(p);
+                }
+                adapter.notifyDataSetChanged();
+            });
+        });
 
-        adapter = new ArrayAdapter<>(getContext(),
-                R.layout.jugador_list_item,
-                R.id.textJugadorLista,
-                listaJugadores);
+      /*  refresh();*/
+        adapter = new JugadorAdapter(getContext(),
+                R.layout.jugador_list_item, listaJugadores);
         binding.ListViewJugadores.setAdapter(adapter);
+
+
+        binding.ListViewJugadores.setOnItemClickListener((adapter, fragment, i, l) -> {
+                    Jugador jugador = (Jugador) adapter.getItemAtPosition(i);
+                    Bundle args = new Bundle();
+                    args.putSerializable("Jugador", jugador);
+
+                    NavHostFragment.findNavController(FirstFragment.this)
+                            .navigate(R.id.action_FirstFragment_to_jugadores_details, args);
+                }
+        );
 
     }
 
@@ -82,6 +99,7 @@ public class FirstFragment extends Fragment {
 
             getActivity().runOnUiThread(() -> {
                 for (Jugador p : fetchedJugadores) {
+                    Log.d("XXX", p.toString());
                     listaJugadores.add(p);
                 }
                 adapter.notifyDataSetChanged();

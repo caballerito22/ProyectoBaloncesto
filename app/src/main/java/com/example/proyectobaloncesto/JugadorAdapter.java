@@ -26,6 +26,7 @@ public class JugadorAdapter extends ArrayAdapter<Jugador> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             Jugador jugador = getItem(position);
 
+
             if (convertView == null){
 
                 LayoutInflater inflater = LayoutInflater.from(getContext());
@@ -37,7 +38,7 @@ public class JugadorAdapter extends ArrayAdapter<Jugador> {
             ImageView imgImage = convertView.findViewById(R.id.imgJugadorLista);
 
             textoJugadorNombre.setText(jugador.getNombre());
-        Glide.with(getContext()).load(jugador.getImagen()).into(imgImage);
+            Glide.with(getContext()).load(jugador.getImagen()).into(imgImage);
 
             return convertView;
     }
