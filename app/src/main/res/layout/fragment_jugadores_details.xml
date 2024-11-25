@@ -30,8 +30,9 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="@+id/txtNombreDetail"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/txtNombreDetail"
-        tools:layout_editor_absoluteY="125dp" />
+        tools:layout_editor_absoluteY="268dp" />
 
     <TextView
         android:id="@+id/txtNacimientoDetail"
@@ -39,6 +40,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="@+id/txtPuntosDetail"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/txtPuntosDetail"
-        tools:layout_editor_absoluteY="190dp" />
+        tools:layout_editor_absoluteY="523dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
