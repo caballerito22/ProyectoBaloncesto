@@ -1,5 +1,6 @@
 package com.example.proyectobaloncesto;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -23,102 +25,80 @@ import java.util.concurrent.Executors;
 public class FirstFragment extends Fragment {
 
     private FragmentFirstBinding binding;
-    ArrayList <Jugador> listaJugadores;
-    ArrayAdapter <Jugador> adapter;
+    private ArrayList<Jugador> listaJugadores;
+    private ArrayAdapter<Jugador> adapter;
 
     @Override
-    public View onCreateView(
-            @NonNull LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState
-    ) {
-
-               binding = FragmentFirstBinding.inflate(inflater, container, false);
-        return binding.getRoot();
-
-    }
-
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = FragmentFirstBinding.inflate(inflater);
+        View view = binding.getRoot();
 
         listaJugadores = new ArrayList<>();
+        adapter = new JugadorAdapter(
+                getContext(),
+                R.layout.jugador_list_item,
+                listaJugadores
+        );
+
+        binding.ListViewJugadores.setAdapter(adapter);
+        binding.ListViewJugadores.setOnItemClickListener((adapterView, view1, position, id) -> {
+            Jugador jugador = adapter.getItem(position);
+            Bundle navigation = new Bundle();
+            navigation.putSerializable("Jugador", jugador);
+            // Realizar la navegación al fragmento de detalles
+            NavHostFragment.findNavController(FirstFragment.this)
+                    .navigate(R.id.action_FirstFragment_to_jugadores_details, navigation);
+        });
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setHasOptionsMenu(true);
+
+        // Llamar a refresh() al crear la vista para obtener los datos automáticamente
+        refresh();
+    }
+
+    void refresh() {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
-            ArrayList<Jugador> fetchedJugadores  = JugadorAPI.buscar();
+            ArrayList<Jugador> jugadores = JugadorAPI.buscar();
 
             getActivity().runOnUiThread(() -> {
-                for (Jugador p : fetchedJugadores) {
+                listaJugadores.clear(); // Asegúrate de limpiar la lista antes de agregar nuevos elementos
+                for (Jugador p : jugadores) {
                     Log.d("XXX", p.toString());
                     listaJugadores.add(p);
                 }
                 adapter.notifyDataSetChanged();
             });
         });
-
-      /*  refresh();*/
-        adapter = new JugadorAdapter(getContext(),
-                R.layout.jugador_list_item, listaJugadores);
-        binding.ListViewJugadores.setAdapter(adapter);
-
-
-        binding.ListViewJugadores.setOnItemClickListener((adapter, fragment, i, l) -> {
-                    Jugador jugador = (Jugador) adapter.getItemAtPosition(i);
-                    Bundle args = new Bundle();
-                    args.putSerializable("Jugador", jugador);
-
-                    NavHostFragment.findNavController(FirstFragment.this)
-                            .navigate(R.id.action_FirstFragment_to_jugadores_details, args);
-                }
-        );
-
     }
 
-   /* @Override
+  /*  @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_main, menu);
     }*/
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_refresh) {
-            refresh();
+            refresh();  // Refresh ahora también sigue estando disponible a través del menú
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void refresh() {
-        //model.reload();
-        ExecutorService executor = Executors.newSingleThreadExecutor();
-        executor.execute(() -> {
-            ArrayList<Jugador> fetchedJugadores  = JugadorAPI.buscar();
-
-            getActivity().runOnUiThread(() -> {
-                for (Jugador p : fetchedJugadores) {
-                    Log.d("XXX", p.toString());
-                    listaJugadores.add(p);
-                }
-                adapter.notifyDataSetChanged();
-            });
-        });
-
-
-        binding.ListViewJugadores.setOnItemClickListener((adapterView, fragment, i, l) -> {
-            Jugador jugador = adapter.getItem(i);
-            Bundle args = new Bundle();
-            args.putSerializable("Jugador", jugador);
-            Log.d("XXX", jugador.toString());
-        });
-    }
-
-        @Override
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
-
 }
