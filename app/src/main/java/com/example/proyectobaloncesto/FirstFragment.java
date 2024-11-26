@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.proyectobaloncesto.databinding.FragmentFirstBinding;
@@ -51,6 +53,12 @@ public class FirstFragment extends Fragment {
                     .navigate(R.id.action_FirstFragment_to_jugadores_details, navigation);
         });
 
+        model = new ViewModelProvider(this).get(JugadoresViewModel.class);
+        model.getjugadores().observe(getViewLifecycleOwner(), jugadors -> {
+            adapter.clear();
+            adapter.addAll(jugadors);
+        });
+
         return view;
     }
 
@@ -64,6 +72,7 @@ public class FirstFragment extends Fragment {
     }
 
     void refresh() {
+        model.reload();
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
             ArrayList<Jugador> jugadores = JugadorAPI.buscar();
