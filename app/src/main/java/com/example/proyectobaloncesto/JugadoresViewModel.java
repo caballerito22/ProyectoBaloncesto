@@ -47,8 +47,8 @@ public class JugadoresViewModel extends AndroidViewModel {
 
             result = api.buscar();
 
-            jugadorDAO.deleteJugador();
-            jugadorDAO.addJugador(result);
+            jugadorDAO.deleteJugadores();
+            jugadorDAO.addJugadores(result);
 
             return null;
         }
