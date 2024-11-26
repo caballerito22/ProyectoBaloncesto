@@ -54,6 +54,7 @@ public class jugadores_details extends Fragment {
     private void showJugador(Jugador jugador) {
         Log.d("Jugador", jugador.toString());
         binding.txtNombreDetail.setText("Nombre: " + jugador.getNombre());
+        binding.txtPuntosDetail.setText("Puntos anotados: "+jugador.getPuntos_totales());
         binding.txtNacimientoDetail.setText("Fecha de Nacimiento: " + jugador.getFecha_nacimiento().toString());
         Glide.with(requireContext()).load(jugador.getImagen()).into(binding.imgJugadorDetail);
     }
