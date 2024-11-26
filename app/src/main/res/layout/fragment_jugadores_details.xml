@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_launcher_background"
-    android:backgroundTint="@color/design_default_color_secondary_variant"
+    android:backgroundTint="#9C27B0"
     tools:context=".JugadoresDetailsFragment">
 
     <ImageView
@@ -53,12 +53,12 @@
         android:id="@+id/txtNacimientoDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
         android:text="Nacimiento: DD/MM/AAAA"
         android:textAlignment="textStart"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPuntosDetail" />
 

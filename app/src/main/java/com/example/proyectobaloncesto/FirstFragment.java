@@ -88,27 +88,30 @@ public class FirstFragment extends Fragment {
         });
     }
 
-  /*@Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_main, menu);
-    }*/
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
 
-        if (id == R.id.action_refresh) {
-            refresh();  // Refresh ahora también sigue estando disponible a través del menú
-            return true;
+        @Override
+        public boolean onOptionsItemSelected (@NonNull MenuItem item){
+            int id = item.getItemId();
+
+            if (id == R.id.action_refresh) {
+                Toast.makeText(getContext(), "Click hecho", Toast.LENGTH_SHORT).show();
+                Log.d("XXXMenu", "CLick");
+                refresh();
+            } else if (id == R.id.action_settings) {
+                Log.d("XXX", "Settings Clicado");
+                Intent intent = new Intent(getContext(), SettingsActivity.class);
+                startActivity(intent);
+                return true;
+            }
+
+            return super.onOptionsItemSelected(item);
         }
 
-        return super.onOptionsItemSelected(item);
+        @Override
+        public void onDestroyView () {
+            super.onDestroyView();
+            binding = null;
+        }
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
-}
