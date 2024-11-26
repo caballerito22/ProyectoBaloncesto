@@ -1,8 +1,14 @@
 package com.example.proyectobaloncesto;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.io.Serializable;
 
+@Entity
 public class Jugador implements Serializable {
+    @PrimaryKey()
+
     int id;
     String nombre;
     Integer puntos_totales;
