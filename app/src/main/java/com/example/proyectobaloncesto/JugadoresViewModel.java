@@ -15,7 +15,6 @@ public class JugadoresViewModel extends AndroidViewModel {
     private final Application app;
     private final AppDatabase appDataBase;
     private final JugadorDAO jugadorDAO;
-    private LiveData<List<Jugador>> jugadores;
 
     public JugadoresViewModel(Application app){
         super(app);
