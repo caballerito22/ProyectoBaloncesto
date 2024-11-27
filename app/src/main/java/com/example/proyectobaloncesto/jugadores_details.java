@@ -56,6 +56,9 @@ public class jugadores_details extends Fragment {
         binding.txtNombreDetail.setText("Nombre: " + jugador.getNombre());
         binding.txtPuntosDetail.setText("Puntos anotados: "+jugador.getPuntos_totales());
         binding.txtNacimientoDetail.setText("Fecha de Nacimiento: " + jugador.getFecha_nacimiento().toString());
+        binding.txtMinutosDetail.setText("Minutos jugados: "+jugador.getMinutos_jugados());
+        binding.txtIdDetail.setText("Su id: "+jugador.getId());
+
         Glide.with(requireContext()).load(jugador.getImagen()).into(binding.imgJugadorDetail);
     }
 }
