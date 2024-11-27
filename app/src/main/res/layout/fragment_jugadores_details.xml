@@ -7,8 +7,9 @@
     android:layout_height="match_parent"
     android:background="@drawable/ic_launcher_background"
     android:backgroundTint="#9C27B0"
-    tools:context=".JugadoresDetailsFragment">
+    tools:context=".jugadores_details">
 
+    <!-- Imagen del Jugador -->
     <ImageView
         android:id="@+id/imgJugadorDetail"
         android:layout_width="295dp"
@@ -19,47 +20,70 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
+    <!-- Nombre -->
     <TextView
         android:id="@+id/txtNombreDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="Nombre del Jugador"
-        android:textAlignment="textStart"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/imgJugadorDetail"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/imgJugadorDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgJugadorDetail" />
 
+    <!-- Puntos Totales -->
     <TextView
         android:id="@+id/txtPuntosDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Puntos: 0"
-        android:textAlignment="textStart"
+        android:layout_marginTop="8dp"
+        android:text="Puntos anotados: 0"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/txtNombreDetail"
-        app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintStart_toStartOf="@+id/txtNombreDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNombreDetail" />
 
+    <!-- Minutos Jugados -->
+    <TextView
+        android:id="@+id/txtMinutosDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Minutos jugados: 0"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPuntosDetail" />
+
+    <!-- Fecha de Nacimiento -->
     <TextView
         android:id="@+id/txtNacimientoDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:text="Nacimiento: DD/MM/AAAA"
-        android:textAlignment="textStart"
+        android:layout_marginTop="8dp"
+        android:text="Fecha de Nacimiento: DD/MM/AAAA"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPuntosDetail" />
+        app:layout_constraintTop_toBottomOf="@+id/txtMinutosDetail" />
+
+    <!-- ID del Jugador -->
+    <TextView
+        android:id="@+id/txtIdDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="ID: 0"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNacimientoDetail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
