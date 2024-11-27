@@ -22,12 +22,8 @@ import com.example.proyectobaloncesto.databinding.FragmentJugadoresDetailsBindin
 */
 public class jugadores_details extends Fragment {
 
-    public static jugadores_details newInstance() {
-        return new jugadores_details();
-    }
 
-    public jugadores_details() {
-    }
+    public jugadores_details() {}
 
     private FragmentJugadoresDetailsBinding binding;
 

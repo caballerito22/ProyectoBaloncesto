@@ -66,26 +66,10 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setHasOptionsMenu(true);
-
-        // Llamar a refresh() al crear la vista para obtener los datos automáticamente
-        refresh();
     }
 
-    void refresh() {
+    private void refresh(){
         model.reload();
-      /*  ExecutorService executor = Executors.newSingleThreadExecutor();
-        executor.execute(() -> {
-            ArrayList<Jugador> jugadores = JugadorAPI.buscar();
-
-            getActivity().runOnUiThread(() -> {
-                listaJugadores.clear(); // Asegúrate de limpiar la lista antes de agregar nuevos elementos
-                for (Jugador p : jugadores) {
-                    Log.d("XXX", p.toString());
-                    listaJugadores.add(p);
-                }
-                adapter.notifyDataSetChanged();
-            });
-        });*/
     }
 
 
@@ -95,11 +79,11 @@ public class FirstFragment extends Fragment {
             int id = item.getItemId();
 
             if (id == R.id.action_refresh) {
-                Toast.makeText(getContext(), "Click hecho", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Refresh clikado", Toast.LENGTH_SHORT).show();
                 Log.d("XXXMenu", "CLick");
                 refresh();
             } else if (id == R.id.action_settings) {
-                Log.d("XXX", "Settings Clicado");
+                Log.d("XXX", "Settings Clikado");
                 Intent intent = new Intent(getContext(), SettingsActivity.class);
                 startActivity(intent);
                 return true;

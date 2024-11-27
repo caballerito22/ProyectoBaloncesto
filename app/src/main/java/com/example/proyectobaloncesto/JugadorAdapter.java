@@ -27,6 +27,7 @@ public class JugadorAdapter extends ArrayAdapter<Jugador> {
             Jugador jugador = getItem(position);
 
 
+            //PARA NO HACER NUEVAS VISTAS
             if (convertView == null){
 
                 LayoutInflater inflater = LayoutInflater.from(getContext());
