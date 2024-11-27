@@ -68,6 +68,7 @@ public class FirstFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
+
     private void refresh(){
         model.reload();
     }
