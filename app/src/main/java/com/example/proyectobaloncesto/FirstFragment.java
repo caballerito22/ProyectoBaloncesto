@@ -73,7 +73,7 @@ public class FirstFragment extends Fragment {
 
     void refresh() {
         model.reload();
-        ExecutorService executor = Executors.newSingleThreadExecutor();
+      /*  ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
             ArrayList<Jugador> jugadores = JugadorAPI.buscar();
 
@@ -85,7 +85,7 @@ public class FirstFragment extends Fragment {
                 }
                 adapter.notifyDataSetChanged();
             });
-        });
+        });*/
     }
 
 

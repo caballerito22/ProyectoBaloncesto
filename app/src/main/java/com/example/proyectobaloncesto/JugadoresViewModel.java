@@ -3,6 +3,7 @@ package com.example.proyectobaloncesto;
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
@@ -45,7 +46,7 @@ public class JugadoresViewModel extends AndroidViewModel {
             ArrayList<Jugador> result;
 
             result = api.buscar();
-
+            Log.d("XXXX",result.toString());
             jugadorDAO.deleteJugadores();
             jugadorDAO.addJugadores(result);
 
