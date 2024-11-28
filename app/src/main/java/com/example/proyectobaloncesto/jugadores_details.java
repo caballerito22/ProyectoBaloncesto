@@ -20,24 +20,31 @@ import com.example.proyectobaloncesto.databinding.FragmentJugadoresDetailsBindin
  * Use the {@link jugadores_details#newInstance} factory method to
  * create an instance of this fragment.
 */
+
+//esta clase sirve para mostrar los detalles en el movil de la derecha
 public class jugadores_details extends Fragment {
 
-
+    //lo dicho anteriormente
     public jugadores_details() {}
 
+    //se va a usar par los detelles -> el  xml(de detellas) y la clase (de detalles)
     private FragmentJugadoresDetailsBinding binding;
 
+    //se generan las vistas a partir del XML
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentJugadoresDetailsBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
+    //se usa cuando la vista ya ha sido creada
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //se obtienen los argumentos(detalles del jugador)
         Bundle args = getArguments();
 
+        //si los argumentos no son nulos se pasan al metodo de mostrar (showJugador)
         if (args != null) {
             Jugador jugador = (Jugador) args.getSerializable("Jugador");
             if (jugador != null) {
@@ -47,6 +54,7 @@ public class jugadores_details extends Fragment {
         }
     }
 
+    //codigo facil, actualiza el jugador con sus detalles
     private void showJugador(Jugador jugador) {
         Log.d("Jugador", jugador.toString());
         binding.txtNombreDetail.setText("Nombre: " + jugador.getNombre());
@@ -55,6 +63,7 @@ public class jugadores_details extends Fragment {
         binding.txtMinutosDetail.setText("Minutos jugados: "+jugador.getMinutos_jugados());
         binding.txtIdDetail.setText("Su id: "+jugador.getId());
 
+        //como he dicho antes, la imagen igual pero en los detalles
         Glide.with(requireContext()).load(jugador.getImagen()).into(binding.imgJugadorDetail);
     }
 }

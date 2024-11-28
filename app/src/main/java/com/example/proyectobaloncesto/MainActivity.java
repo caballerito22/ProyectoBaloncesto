@@ -19,6 +19,7 @@ import com.example.proyectobaloncesto.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
 
+//esto es la pantalla principal y la navegación
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
