@@ -8,13 +8,18 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+
+//
 public class HttpUtils {
     public static String get(String dataUrl) throws IOException {
+        //solicitud sobre la URL
         URL url = new URL(dataUrl);
         String response = null;
 
+        //abre la conexion y lee la respuesta
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         try {
+            //aqui convierte la entrada en texto mediante la funcion
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());
             response = readStream(in);
         } finally {

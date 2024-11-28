@@ -5,8 +5,11 @@ import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
+//clase entidad de la base de datos(guarda la tabla)
+//room es la biblioteca de base de datos de android, y crea una tabla con los siguientes atributos
+
 @Entity
-public class Jugador implements Serializable {
+public class Jugador implements Serializable { //para que sea mas facil el manejo
     @PrimaryKey()
 
     int id;
@@ -24,8 +27,11 @@ public class Jugador implements Serializable {
         this.fecha_nacimiento = fecha_nacimiento;
         this.imagen = imagen;
     }
+    //hay que poner un constructor vacio (como en programación)
     public Jugador(){}
 
+    //pregunta que puede hacer Carles a continuación, para que se definen todos los gett. y sett.?
+    //se ponen todos los getters y setters porque con Room accede a los atributos cuando se recuperan desde la base de datos
     public int getId() {
         return id;
     }
