@@ -32,7 +32,7 @@ public class FirstFragment extends Fragment {
     private FragmentFirstBinding binding;
     //la lista de los jugadores
     private ArrayList<Jugador> listaJugadores;
-    //para conectar la lista
+    //para conectar la lista -intermediario-
     private ArrayAdapter<Jugador> adapter;
     //para manejar los datos
     private JugadoresViewModel model;
