@@ -13,9 +13,6 @@ import java.util.ArrayList;
 
 //CLASE PARA USAR NUESTRA API
 public class JugadorAPI {
-    //nuestra URL donde tenemos creada la tabla
-    private final String BASE_URL = "https://kbtxkoqwswyrxdonedfm.supabase.co/rest/v1/Jugadores%20Baloncesto?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtidHhrb3F3c3d5cnhkb25lZGZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzE2NjMzOTksImV4cCI6MjA0NzIzOTM5OX0.-sAPPDL5oihEkmYqqHXAY74RMU8Lfe7LC7PSwZTcI1E";
-
 
     //los datos obtenidos, los mete en un Array
     public static ArrayList<Jugador> buscar() {
